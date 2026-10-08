@@ -7,7 +7,6 @@
         android:label="Hello World App"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         
-        <!-- Activity ka pura package name use kiya gaya hai aur android:name sahi hai -->
         <activity 
             android:name="com.example.helloworld.MainActivity"
             android:exported="true">
