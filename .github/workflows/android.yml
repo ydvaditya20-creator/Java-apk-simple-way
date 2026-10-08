@@ -17,13 +17,14 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
+
+    # Yeh step GitHub server par automatic Gradle system setup kar dega
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
 
-    
+    # Dhayan dein: Yahan se ./ hata diya gaya hai taaki local gradlew ki zarurat na pade
     - name: Build Debug APK
-      run: ./gradlew assembleDebug
+      run: gradle assembleDebug
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
