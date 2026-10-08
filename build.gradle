@@ -1,16 +1,9 @@
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
     dependencies {
+        // Sirf Android Gradle Plugin ki dependency yahan rahegi
         classpath 'com.android.tools.build:gradle:8.2.2'
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
+// Baki saare "repositories" aur "allprojects" wale blocks humne yahan se hata diye hain
+// kyunki wo pehle se hi settings.gradle me automatic manage ho rahe hain.
