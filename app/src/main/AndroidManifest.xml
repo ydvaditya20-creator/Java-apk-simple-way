@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://android.com"
-    package="com.example.helloworld">
+<manifest xmlns:android="http://android.com">
 
     <application
         android:allowBackup="true"
@@ -8,8 +7,9 @@
         android:label="Hello World App"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         
+        <!-- Activity ka pura package name use kiya gaya hai aur android:name sahi hai -->
         <activity 
-            android:name=".MainActivity"
+            android:name="com.example.helloworld.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
