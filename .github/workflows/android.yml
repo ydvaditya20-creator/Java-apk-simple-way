@@ -18,11 +18,21 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # Yeh step GitHub server par automatic Gradle system setup kar dega
+    # 🔥 MAGIC STEP: Yeh block missing configuration files ko automatic generate kar dega
+    - name: Auto-Create Missing Config Files
+      run: |
+        echo "Creating gradle.properties..."
+        echo "android.useAndroidX=true" > gradle.properties
+        
+        echo "Creating/Overwriting root build.gradle..."
+        echo -e "buildscript {\n    repositories {\n        google()\n        mavenCentral()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:8.2.2'\n    }\n}" > build.gradle
+
+        echo "Creating/Overwriting settings.gradle..."
+        echo -e "pluginManagement {\n    repositories {\n        google()\n        mavenCentral()\n        gradlePluginPortal()\n    }\n}\ndependencyResolutionManagement {\n    repositories {\n        google()\n        mavenCentral()\n    }\n}\nrootProject.name = \"HelloWorld\"\ninclude ':app'" > settings.gradle
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
 
-    # Dhayan dein: Yahan se ./ hata diya gaya hai taaki local gradlew ki zarurat na pade
     - name: Build Debug APK
       run: gradle assembleDebug
 
